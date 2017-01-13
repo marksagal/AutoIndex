@@ -1,4 +1,8 @@
 <?php
+if ($_SERVER['SCRIPT_URL'] === '/index.php') {
+	header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found', true, 404);
+	exit();
+}
 
 /**
  * Handles all requests by the browser. This is the only file that can be
