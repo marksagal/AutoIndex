@@ -489,7 +489,7 @@ class Stats
 			. number_format($num / $this -> num_days, 1) . "</td></tr>\n";
 		}
 		$str .= '</table><p><a class="autoindex_a" href="'
-		. Url::html_output($_SERVER['PHP_SELF']) . '">Continue.</a></p>';
+		. Url::html_output(INDEX_FILE) . '">Continue.</a></p>';
 		echo new Display($str);
 		die();
 	}

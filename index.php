@@ -113,6 +113,8 @@ define('VERSION', '2.2.4');
  */
 define('IN_AUTOINDEX', true);
 
+define('INDEX_FILE', 'index.aspx');
+
 if (@get_magic_quotes_gpc())
 //remove any slashes added by the "magic quotes" setting
 {
@@ -272,7 +274,7 @@ try
 		if (defined($key))
 		{
 			throw new ExceptionFatal(Url::html_output($key)
-			. ' is already defined in <em>' . basename(Url::html_output($_SERVER['PHP_SELF']))
+			. ' is already defined in <em>' . basename(Url::html_output(INDEX_FILE))
 			. '</em>, and should not be in the config file.');
 		}
 		define($key, ($item != 'false' && $item != '0'));
@@ -453,7 +455,7 @@ try
 			|| stripos($_SERVER['HTTP_REFERER'], $_SERVER['SERVER_NAME']) === false))
 			{
 				$log -> add_entry('Leech Attempt');
-				$self = $_SERVER['SERVER_NAME'] . Url::html_output($_SERVER['PHP_SELF'])
+				$self = $_SERVER['SERVER_NAME'] . Url::html_output(INDEX_FILE)
 				. '?dir=' . Url::translate_uri($subdir);
 				throw new ExceptionDisplay('<h3>This PHP Script has an Anti-Leech feature turned on.</h3>'
 				. ' <p>Make sure you are accessing this file directly from <a class="autoindex_a" href="http://'

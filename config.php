@@ -1,5 +1,5 @@
 <?php
-
+define('INDEX_FILE', 'index.php');
 /**
  * When a file with the stored config data is not present, this file is
  * automatically included to create a new one.
